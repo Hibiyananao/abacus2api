@@ -68,7 +68,7 @@ TIMEOUT = 30.0  # 请求超时时间（秒）
 MAX_RETRIES = 3  # 最大重试次数
 RETRY_DELAY = 1  # 重试延迟（秒）
 
-@app.get("/v1/models")
+@app.get("/hf/v1/models")
 async def list_models():
     """返回支持的模型列表"""
     models = [
@@ -120,7 +120,7 @@ def process_messages(messages: List[Message]) -> str:
         
     return full_message
 
-@app.post("/v1/chat/completions")
+@app.post("/hf/v1/chat/completions")
 async def chat_completions(request: Request, chat_request: ChatRequest):
     """处理聊天完成请求"""
     # 获取认证token
